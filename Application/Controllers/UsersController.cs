@@ -17,7 +17,7 @@ namespace Application.Controllers
             _service = service;
         }
 
-        [HttpDelete("(id)")]
+        [HttpDelete("{id}")]
         public async Task<ActionResult> Delete(Guid id)
         {
             if(!ModelState.IsValid)
@@ -95,7 +95,7 @@ namespace Application.Controllers
 
             try
             {
-                var result = await _service.Post(userModel);
+                var result = await _service.Put(userModel);
 
                 if (result != null)
                     return Ok(result);
